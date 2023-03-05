@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Beginner</title>
+</head>
+<body>
+    <h1>Register Form</h1>
+    <form th:object="${user}" method="post" action="/form">
+        <div>
+            <!-- th:field를 사용하면 name 속성이 자동~! -->
+            <label>Id:</label>
+            <input type="text" th:field="*{id}" disabled />
+        </div>
+        <div>
+            <label>Name:</label>
+            <input type="text" th:field="*{name}" />
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" th:field="*{email}" />
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" name="pwd" th:value="${user?.pwd}" />
+        </div>
+        <input type="submit" value="SIGN"/>
+    </form>
+</body>
+</html>
